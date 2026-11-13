@@ -10,9 +10,13 @@ def powers(list,power_start,power_finish):
 
 def matmul(A, B):
     rows_a = len(A)
+    cols_a = len(A[0])
     cols_b = len(B[0])
     rows_b = len(B)
 
+    if cols_a is not rows_b:
+        print("matrix mult not possible")
+        return
     C = [[0 for _ in range(cols_b)] for _ in range(rows_a)]
 
     k = 0
@@ -21,7 +25,6 @@ def matmul(A, B):
         for i in range (rows_a):
             for k in range(rows_b): # summa där k går från 0 till len(A[0]) Aik *Bkj
                 C[i][j] += A[i][k] * B[k][j]
-
     return C
 
 def invert():
