@@ -28,8 +28,20 @@ print(powers(test_list,power_start,power_finish)) """
 def matmul():
     pass
 
-def invert():
-    pass
+def invert(M):
+    a = M[0][0]
+    b = M[0][1]
+    c = M[1][0]
+    d = M[1][1]
+    det = (a*d-b*c)
+    inverted_M = [[d/det, -b/det]
+                  ,[-c/det, a/det]]
+    return inverted_M
+
+#Test for invert function
+""" A    = [[1,2]
+        ,[3,4]]
+print(invert(A)) """
 
 def loadtxt():
     pass
