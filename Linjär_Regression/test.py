@@ -39,7 +39,7 @@ def run(src_path=None):
 
     if hasattr(matrix, "loadtxt"):
         fun_count = fun_count + 1
-        fpath = "chirps.txt"
+        fpath = "Linjär_Regression/chirps.txt"
         if not os.path.exists(fpath) and src_path is not None:
             # look for the file in `src_path` instead
             fpath = os.path.join(src_path, fpath)
