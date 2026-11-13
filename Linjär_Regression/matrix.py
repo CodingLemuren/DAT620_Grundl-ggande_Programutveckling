@@ -4,17 +4,25 @@ def transpose(M):
         for j in range(len(M[i])):
             transposed_M[j][i] = M[i][j]
     return transposed_M
-M = [[1,2]
-     ,[3,4]
-     ,[4,8]
-     ]
-print(transpose(M))
 
 def powers(list,power_start,power_finish):
     pass
 
-def matmul():
-    pass
+def matmul(A, B):
+    rows_a = len(A)
+    cols_b = len(B[0])
+    rows_b = len(B)
+
+    C = [[0 for _ in range(cols_b)] for _ in range(rows_a)]
+
+    k = 0
+    len(A[0])
+    for j in range(cols_b):
+        for i in range (rows_a):
+            for k in range(rows_b): # summa där k går från 0 till len(A[0]) Aik *Bkj
+                C[i][j] += A[i][k] * B[k][j]
+
+    return C
 
 def invert():
     pass
@@ -23,3 +31,16 @@ def loadtxt():
     pass
 
 
+
+
+# test
+M = [[1,2, 3]
+     ,[3,4, 5]
+     ]
+M2 = [[1,2]
+     ,[3,4]
+     ,[4,8]
+     ]
+
+print(matmul(M, M2))
+# print(transpose(M))
