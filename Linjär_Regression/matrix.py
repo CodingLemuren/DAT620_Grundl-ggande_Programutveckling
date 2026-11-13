@@ -43,7 +43,13 @@ def invert(M):
         ,[3,4]]
 print(invert(A)) """
 
-def loadtxt():
-    pass
+def loadtxt(M_file):
+    read_M_file = open(M_file, "r")
+    M = []
+    for line in read_M_file:
+        M.append([float(x) for x in line.split()])
+    return M
 
-
+#Test for loadtxt function
+# file = open("Linjär_Regression/chirps.txt", "r")
+#print(loadtxt("Linjär_Regression/chirps.txt"))
