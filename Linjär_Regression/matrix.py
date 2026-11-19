@@ -1,4 +1,6 @@
 def transpose(M):
+    if M == []:
+        return []
     transposed_M = [[0 for _ in range(len(M))] for _ in range(len(M[0]))]
     for i in range(len(M)):
         for j in range(len(M[i])):
@@ -18,6 +20,8 @@ power_start, power_finish = 0,2
 print(powers(test_list,power_start,power_finish)) """
 
 def matmul(A, B):
+    if A == [] or B == []:
+        return []
     rows_a = len(A)
     cols_a = len(A[0])
     cols_b = len(B[0])
@@ -61,7 +65,7 @@ def loadtxt(M_file):
 
 
 # test
-M = [[1,2, 3]
+""" M = [[1,2, 3]
      ,[3,4, 5]
      ]
 M2 = [[1,2]
@@ -69,7 +73,7 @@ M2 = [[1,2]
      ,[4,8]
      ]
 
-print(matmul(M, M2))
+print(matmul(M, M2)) """
 # print(transpose(M))
 #Test for loadtxt function
 # file = open("Linjär_Regression/chirps.txt", "r")
