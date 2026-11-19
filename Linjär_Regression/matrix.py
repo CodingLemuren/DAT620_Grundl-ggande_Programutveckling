@@ -1,9 +1,10 @@
 def transpose(M):
     if M == []:
         return []
-    transposed_M = [[0 for _ in range(len(M))] for _ in range(len(M[0]))]
-    for i in range(len(M)):
-        for j in range(len(M[i])):
+    rows = len(M)
+    transposed_M = [[0 for _ in range(rows)] for _ in range(len(rows[0]))]
+    for i in range(rows):
+        for j in range(len(rows[i])):
             transposed_M[j][i] = M[i][j]
     return transposed_M
 
