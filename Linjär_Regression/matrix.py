@@ -14,11 +14,6 @@ def powers(list,power_start,power_finish):
             M[i][j] = list[i]**(power_start+j)
     return M
 
-#Test for powers function
-""" test_list = [2,3,4]
-power_start, power_finish = 0,2
-print(powers(test_list,power_start,power_finish)) """
-
 def matmul(A, B):
     if A == [] or B == []:
         return []
@@ -50,31 +45,9 @@ def invert(M):
                   ,[-c/det, a/det]]
     return inverted_M
 
-#Test for invert function
-""" A    = [[1,2]
-        ,[3,4]]
-print(invert(A)) """
-
 def loadtxt(M_file):
     read_M_file = open(M_file, "r")
     M = []
     for line in read_M_file:
         M.append([float(x) for x in line.split()])
     return M
-
-
-
-# test
-""" M = [[1,2, 3]
-     ,[3,4, 5]
-     ]
-M2 = [[1,2]
-     ,[3,4]
-     ,[4,8]
-     ]
-
-print(matmul(M, M2)) """
-# print(transpose(M))
-#Test for loadtxt function
-# file = open("Linjär_Regression/chirps.txt", "r")
-#print(loadtxt("Linjär_Regression/chirps.txt"))
