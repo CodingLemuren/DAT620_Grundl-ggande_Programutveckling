@@ -33,7 +33,11 @@ def main():
     a = np.matmul(np.linalg.inv(np.matmul(Xpt,Xp)),np.matmul(Xpt,Yp))
     a = a[:,0]
 
-    X2 = np.linspace(int(X[0]),int(X[-1]),int((X[-1]-X[0])/0.2)).tolist()
+    #Using numpy's arange instead of linspace to be able to work with floats
+    start_x = X[0]
+    end_x = X[-1]
+    step_length = (end_x-start_x)/1000
+    X2 = np.arange(start_x,end_x+step_length,step_length).tolist()
 
     plt.plot(X,Y,'ro')
     plt.plot(X2,(poly(a,X2)))
