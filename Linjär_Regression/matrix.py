@@ -2,15 +2,17 @@ def transpose(M):
     if M == []:
         return []
     rows = len(M)
-    transposed_M = [[0 for _ in range(rows)] for _ in range(len(rows[0]))]
+    columns = len(M[0])
+    transposed_M = [[0 for _ in range(rows)] for _ in range(columns)]
     for i in range(rows):
-        for j in range(len(rows[i])):
+        for j in range(columns):
             transposed_M[j][i] = M[i][j]
     return transposed_M
 
 def powers(list,power_start,power_finish):
     M = [[0 for _ in range(power_finish-power_start+1)] for _ in range(len(list))]
-    for i in range(len(M)):
+    rows = len(M)
+    for i in range(rows):
         for j in range(len(M[i])):
             M[i][j] = list[i]**(power_start+j)
     return M
