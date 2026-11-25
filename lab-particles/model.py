@@ -2,7 +2,7 @@ import math
 
 # Task (2/12): Define a class Vec
 
-class vec:
+class Vec:
 	def	__init__(self, x, y):
 		#initialize the vector self at the given coordinates.
 		pass
@@ -39,7 +39,7 @@ def dot(u, v):
 
 # Task (4/12): Create a class Particle
 
-class particle:
+class Particle:
 	def __init__(self, mass, position, velocity, radius):
 		self.mass = mass
 		self.position = position
