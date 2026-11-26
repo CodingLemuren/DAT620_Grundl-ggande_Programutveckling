@@ -55,8 +55,8 @@ class Particle:
 # Task (5/12): In the Particle class, implement a method inertial_move(self, dt).
 
 	def inertial_move(self, dt):
+		self.position = (dt*self.velocity + self.position)
 		#This method modifies the position attribute of a particle according to the above formula, over a small interval of time dt.
-		pass
 
 # Task (6/12): In the Particle class, implement a method apply_force(self, dt, f)
 	def apply_force(self, dt, f):
@@ -85,6 +85,12 @@ print(vector1)
 vector2 = (2 * vector1)
 print(vector2)
 aaddition_vec = vector1 + vector2
-print(aaddition_vec)
+# print(aaddition_vec)
 sub_vec = vector1 - vector2
-print(sub_vec)
+# print(sub_vec)
+
+part = Particle(5, vector1, vector2, 2)
+
+part.inertial_move(2)
+print(part.position)
+print(vector1)
