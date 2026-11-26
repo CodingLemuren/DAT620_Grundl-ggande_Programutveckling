@@ -94,3 +94,5 @@ part = Particle(5, vector1, vector2, 2)
 part.inertial_move(2)
 print(part.position)
 print(vector1)
+
+part.apply_force(2,vector2)

@@ -1,6 +1,26 @@
+from tkinter import *
+from model import * 
+
+
+
 # Task (7/12): Draw on canvas
 
-# Task (8/12): Define a new function to_canvas_coords(canvas, u)
+# Task (8/12): Define a new function 
+def to_canvas_coords(canvas, u):
+    canvas_u = (canvas.winfo_reqheight()/20)*(u)
+    canvas_u.y = (-1)*canvas_u.y
+    return canvas_u
+
+
+root = Tk()
+canvas = Canvas(root, bg="white", width=800, height=600)
+canvas.pack()
+o = canvas.create_oval(80, 30, 140, 150, fill="blue")
+
+vector_u = (2,4)
+
+input()
+
 
 #######################################
 ### NB. Task 9 is done in model.py. ###
