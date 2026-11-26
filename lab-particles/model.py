@@ -4,8 +4,8 @@ import math
 
 class Vec:
 	def	__init__(self, x, y):
-		#initialize the vector self at the given coordinates.
-		pass
+		self.x = x
+		self.y = y
 
 	def	__repr__(self):
 		pass
@@ -25,17 +25,17 @@ class Vec:
 		#return a new vector which is the subtraction of self and other.
 
 	def norm(self):
-		#return the Euclidean norm of self.
-		#Euclidean norm for a vector is defined as .
-		pass
+		norm = math.sqrt(self.x**2 + self.y**2)
+		return norm
 
 	def get_coords(self):
-		pass
+		return self.x, self.y
 
 # Task (3/12): Additionally define a function dot(u, v)
 def dot(u, v):
-	#which computes the dot product of u and v
-	pass
+	prod = u.x*v.x + u.y*v.y
+	return prod
+
 
 # Task (4/12): Create a class Particle
 
@@ -54,8 +54,9 @@ class Particle:
 
 # Task (6/12): In the Particle class, implement a method apply_force(self, dt, f)
 	def apply_force(self, dt, f):
-		#This method modifies the velocity attribute of a particle according to the above formulas, assuming a constant force f, over a small interval of time dt
-		pass
+		print(f)
+		self.velocity = dt*((1/self.mass)*f) + self.velocity
+		print(self.velocity)
 
 ##########################################
 ### NB. Tasks 7–8 are done in view.py. ###
@@ -73,3 +74,10 @@ class Particle:
 ### When you're done with all 12 tasks: ###
 ### forces/other features in this file! ###
 ###########################################
+
+
+vector_1 = Vec(1,2)
+vector_2 = Vec(2,4)
+part = Particle(5,vector_1,vector_1,2)
+
+part.apply_force(2,vector_2)
