@@ -4,24 +4,30 @@ import math
 
 class Vec:
 	def	__init__(self, x, y):
+		self.x = x
+		self.y = y
 		#initialize the vector self at the given coordinates.
-		pass
 
 	def	__repr__(self):
-		pass
+		return f"({self.x}, {self.y})"
 
-		#return a string which is a suitable representation of the vector. For instance "(1.34,45.7)" if the self has coordinates x=1.34 and y=45.7.
 	def	__rmul__(self, factor):
-		pass
-
+		x = self.x * factor
+		y = self.y * factor
+		return Vec(x,y)
 		#return a new vector scaled by the given factor
+
 	def	__add__(self, other):
-		pass
+		x = self.x + other.x
+		y = self.y + other.y
+		return Vec(x,y)
 
 		#return a new vector which is the addition of self and other.
-	def	__sub__(self, other):
-		pass
 
+	def	__sub__(self, other):
+		x = self.x - other.x
+		y = self.y - other.y
+		return Vec(x,y)
 		#return a new vector which is the subtraction of self and other.
 
 	def norm(self):
@@ -73,3 +79,12 @@ class Particle:
 ### When you're done with all 12 tasks: ###
 ### forces/other features in this file! ###
 ###########################################
+
+vector1 = Vec(1,2)
+print(vector1)
+vector2 = (2 * vector1)
+print(vector2)
+aaddition_vec = vector1 + vector2
+print(aaddition_vec)
+sub_vec = vector1 - vector2
+print(sub_vec)
