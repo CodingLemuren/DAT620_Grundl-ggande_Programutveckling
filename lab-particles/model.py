@@ -49,44 +49,29 @@ class Particle:
 		self.position = (dt*self.velocity + self.position)
 
 	def apply_force(self, dt, f):
-		print(f)
 		self.velocity = dt*((1/self.mass)*f) + self.velocity
-		print(self.velocity)
 
 	def bounding_box(self):
 		top_left = Vec(self.position.x - self.radius, self.position.y + self.radius)
 		bottom_right = Vec(self.position.x + self.radius, self.position.y - self.radius)
 		return (top_left, bottom_right)
 
-##########################################
-### NB. Tasks 7–8 are done in view.py. ###
-##########################################
+def gravitational_force(dt, particles, G):
+	for particle_1 in particles:
+		force = Vec(0,0)
+		for particle_2 in particles:
+			if particle_1 != particle_2:
+				x1 = particle_1.position
+				x2 = particle_2.position
+				r = (x2-x1).norm()
+				f = G*(particle_1.mass*particle_2.mass)/(r**2)
+				f_2 = (f/r)*(x2-x1)
+				force = force + f_2
+		particle_1.apply_force(dt, force)
 
-
-
-
-
-
-
-
-###########################################
-### When you're done with all 12 tasks: ###
-### forces/other features in this file! ###
-###########################################
-
-vector1 = Vec(1,2)
-print(vector1)
-vector2 = (2 * vector1)
-print(vector2)
-aaddition_vec = vector1 + vector2
-# print(aaddition_vec)
-sub_vec = vector1 - vector2
-# print(sub_vec)
-
-part = Particle(5, vector1, vector2, 2)
-
-part.inertial_move(2)
-print(part.position)
-print(vector1)
-
-part.apply_force(2,vector2)
+def wall_force(dt, particles, k, n, a):
+	for particle in particles:
+		d = dot(particle.position-a,n)
+		force = -1*k*d*n
+		if d < 0:
+			particle.apply_force(dt, force)

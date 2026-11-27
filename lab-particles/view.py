@@ -31,6 +31,7 @@ def simulation_loop(f, timestep, particles):
     previous_time = time.time()
     while True:
         f(timestep, particles)
+        gravitational_force(timestep,particles,150)
         for i, particle in enumerate(particles):
             particle.inertial_move(timestep)
             move_oval_to(canvas, ovals[i], particle.bounding_box()[0],  particle.bounding_box()[1])
