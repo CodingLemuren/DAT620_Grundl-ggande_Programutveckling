@@ -23,19 +23,37 @@ def create_oval(canvas, particle):
     move_oval_to(canvas, o, particle.bounding_box()[0], particle.bounding_box()[1])
     return o
 
+def simulation_loop(f, timestep, particles):
+    ovals = []
+    for particle in particles:
+        ovals.append(create_oval(canvas, particle))
+
+    previous_time = time.time()
+    while True:
+        f(timestep, particles)
+        for i, particle in enumerate(particles):
+            particle.inertial_move(timestep)
+            move_oval_to(canvas, ovals[i], particle.bounding_box()[0],  particle.bounding_box()[1])
+
+        current_time = time.time()
+        if current_time - previous_time >= (1/30):
+            canvas.update()
+            previous_time = current_time
+
+
 
 root = Tk()
 canvas = Canvas(root, bg="white", width=800, height=600)
 canvas.pack()
 
 
-for n in range(5):
+""" for n in range(5):
   particle = Particle(0, Vec(n,n), Vec(0,0), 0.2)
   create_oval(canvas, particle)
   canvas.update()
   time.sleep(1)
 
-input()
+input() """
 """ vector1 = Vec(-10,10)
 vector2 = Vec(2,4)
 part_u = Particle(5,vector1,vector2,2)
